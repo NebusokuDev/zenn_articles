@@ -7,25 +7,26 @@ published: false
 ---
 
 
-
+## なぜやろうと思ったか
 
 永続化の方法はFirebase mBaas やSqfliteなどのありますが、バイナリかつ独自形式で保存したい場合もあると思います。
 
 自分が開発しているアプリで  
 - PC、モバイルで共有
 - Dropboxで共有したい
-- 画像を固めてバイナリしたい
-のようなユースケースがあったので永続化の方法について考えてみようと思います。  
+- 複数の画像をまとめて保存したい
+- キャッシュ領域やアプリを削除してもファイルは残しておきたい
 
 
-使用したパッケージなど
+のようなユースケースがあったのでバイナリで永続化する方法について考えてみようと思います。  
 
-```yaml
+
+
+
+## JSON、YAMLを
+- 可読性がある
 - 
-
-```
-
-## JSON、YAML
+設定ファイルに向いてる
 
 ## Procol Buffersをスキーマとして使う
 Protocol BuffersはGoogleによって開発されたインターフェース定義言語/シリアライズ形式です。主にgRPCなどで使用されています。  
@@ -33,6 +34,7 @@ Protocol BuffersはGoogleによって開発されたインターフェース定�
 - プログラミング言語に依存しない
 - リファクタリングで拡張されることを前提にしている
 - シリアライズ/デシリアライズが楽
+- 画像
 - データ構造が一意に決まる
 
 といった特徴があります。
@@ -44,10 +46,10 @@ Protocol BuffersはGoogleによって開発されたインターフェース定�
 なんてこともあるあるだと思います。そんな場合にも`.proto`をコンパイルするだけで済み、楽に対応することができるかと思います。
 クライアント・サーバー間のデータとしては管理が面倒かと思いますが、ローカルに保存するファイルのスキーマであれば、言語の違いによるシリアライズ・デシリアライズの処理に悩まずに済みそうです。
 
-## protobufの導入方法
-### 1. 
-### 1. [protobufパッケージをFlutterプロジェクトにインストール](https://pub.dev/packages/protobuf/install)
-### 1. [protoc_pluginを`global`でインストール](https://pub.dev/packages/protoc_plugin/install)
+## Protocol Buffersの導入
+### 1. [protocコンパイラをインストールし、パスを通す]()
+### 2. [protobufパッケージをFlutterプロジェクトにインストール](https://pub.dev/packages/protobuf/install)
+### 3. [protoc_pluginを`global`でインストール](https://pub.dev/packages/protoc_plugin/install)
 
 
 ```proto
@@ -66,3 +68,8 @@ syntax = 3;
 
 
 ### リポジトリ
+
+### 使用したパッケージなど
+
+- [protobuf](https://pub.dev/packages/protobuf/install)
+- [protoc_plugin](https://pub.dev/packages/protoc_plugin/install)
