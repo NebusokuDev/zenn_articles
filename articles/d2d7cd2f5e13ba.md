@@ -21,20 +21,12 @@ published: false
 のようなユースケースがあったのでバイナリで永続化する方法について考えてみようと思います。  
 
 
-
-
-## JSON、YAMLを
-- 可読性がある
-- 
-設定ファイルに向いてる
-
 ## Procol Buffersをスキーマとして使う
 Protocol BuffersはGoogleによって開発されたインターフェース定義言語/シリアライズ形式です。主にgRPCなどで使用されています。  
 
 - プログラミング言語に依存しない
 - リファクタリングで拡張されることを前提にしている
 - シリアライズ/デシリアライズが楽
-- 画像
 - データ構造が一意に決まる
 
 といった特徴があります。
@@ -72,5 +64,6 @@ syntax = 3;
 
 - [protobuf](https://pub.dev/packages/protobuf/install)
 - [protoc_plugin](https://pub.dev/packages/protoc_plugin/install)
+
 ### リポジトリ
 
