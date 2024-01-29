@@ -50,6 +50,8 @@ Protocol BuffersはGoogleによって開発されたインターフェース定�
 ### 1. [protocコンパイラをインストールし、パスを通す]()
 ### 2. [protobufパッケージをFlutterプロジェクトにインストール](https://pub.dev/packages/protobuf/install)
 ### 3. [protoc_pluginを`global`でインストール](https://pub.dev/packages/protoc_plugin/install)
+### 4. `.proto`を作成
+### 5. protocでコンパイル
 
 
 ```proto
@@ -66,10 +68,9 @@ syntax = 3;
 
 [DartでgRPCを使う](https://qiita.com/kabochapo/items/6848457ea7a966baf957#protoc)
 
-
-### リポジトリ
-
 ### 使用したパッケージなど
 
 - [protobuf](https://pub.dev/packages/protobuf/install)
 - [protoc_plugin](https://pub.dev/packages/protoc_plugin/install)
+### リポジトリ
+
